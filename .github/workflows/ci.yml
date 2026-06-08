@@ -35,9 +35,4 @@ jobs:
           go-version: "1.26.0"
 
       - name: Run gofmt
-        run: |
-          if [ -n "$(gofmt -l .)" ]; then
-            echo "Следующие файлы не отформатированы:"
-            gofmt -l .
-            exit 1
-          fi
+        run: test -z $(go fmt ./...)
