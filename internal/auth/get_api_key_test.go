@@ -47,7 +47,7 @@ func TestGetAPIKey(t *testing.T) {
 	//})
 
 	t.Run("Empty Auth header", func(t *testing.T) {
-		headers := http.Header1{}
+		headers := http.Header{}
 
 		_, err := GetAPIKey(headers)
 		if !errors.Is(err, ErrNoAuthHeaderIncluded) {
